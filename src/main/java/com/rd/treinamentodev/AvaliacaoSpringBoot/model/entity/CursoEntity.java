@@ -1,9 +1,12 @@
 package com.rd.treinamentodev.AvaliacaoSpringBoot.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+
 
 @Entity
 @Table(name = "TB_CURSO")
@@ -20,4 +23,7 @@ public class CursoEntity {
 
     @Column(name = "NR_CARGA_HORARIA")
     private Integer nrCargaHoraria;
+
+    public void setCargaHoraria(Integer cargaHoraria) {
+    }
 }

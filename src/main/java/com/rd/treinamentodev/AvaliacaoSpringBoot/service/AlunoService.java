@@ -25,8 +25,14 @@ public class AlunoService {
 
 
 
-
         entity = alunoRepository.save(entity);
+
+//        if (entity.getCpf() == entity.setCpf(String cpf)) {
+//
+//
+//                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O CPF informado já existe");
+//        }
+//        else{
 
         ResultData resultData = new ResultData(HttpStatus.CREATED.value(), "Aluno cadastrado com sucesso", entity.getIdAluno());
         return ResponseEntity.status(HttpStatus.CREATED).body(resultData);

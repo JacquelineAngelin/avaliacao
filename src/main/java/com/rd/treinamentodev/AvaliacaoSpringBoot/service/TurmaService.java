@@ -13,9 +13,12 @@ import com.rd.treinamentodev.AvaliacaoSpringBoot.repository.TurmaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TurmaService {
@@ -28,13 +31,18 @@ public class TurmaService {
 
     SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy");
 
+    @Transactional
     public List<TurmaDTO> listar(){
         List<TurmaEntity> listEntity = turmaRepository.findAll();
         List<TurmaDTO> listDTO = new ArrayList<>();
+        listDTO.setCurso(listEntity.getCurso());
+        listDTO.setDtInicio(listEntity.getDtInicio());
+        listDTO.setdtFim(listEntity.getDtFim());
+        listDTO.setdtFim(listEntity.getDtFim());
+        listDTO.setInstrutores(listEntity.getInstrutores());
+        listDTO.setAlunos(listEntity.getAlunos());
 
         //TODO implementar a conversão da lista de objetos de TurmaEntity para TurmaDTO e retornar a listDTO preenchida
-
-
 
 
         return listDTO;
